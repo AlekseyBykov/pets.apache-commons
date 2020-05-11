@@ -17,6 +17,10 @@
         <project.sourceEncoding>UTF-8</project.sourceEncoding>
     </properties>
 
+    <name>apache-commons</name>
+    <description>Various examples of using Apache Commons library.</description>
+    <url>https://alekseybykov.github.io</url>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.commons</groupId>
