@@ -23,20 +23,14 @@ public class StringManipulationTest {
 		assertEquals("This Is An Example Of A Simple String", WordUtils.capitalize(string));
 		assertEquals("This Is An Example Of A Simple String", WordUtils.capitalizeFully(string));
 	}
+
+	@Test
+	public void testSwapCaseOfString() {
+		assertEquals("THIS IS AN eXAMPLE OF A SIMPLE STRING", StringUtils.swapCase(string));
+	}
+
+	@Test
+	public void testCountMatchesInString() {
+		assertEquals(4, StringUtils.countMatches(string, "i"));
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
