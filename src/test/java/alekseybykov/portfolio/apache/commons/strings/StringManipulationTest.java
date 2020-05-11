@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 
 public class StringManipulationTest {
 
-	private final String string = "this is an Example of a simple string";
+	private final String string = "this is an Example of.a simple string";
 
 	@Test
 	public void testAbbreviateString() {
@@ -32,5 +32,28 @@ public class StringManipulationTest {
 	@Test
 	public void testCountMatchesInString() {
 		assertEquals(4, StringUtils.countMatches(string, "i"));
+		assertEquals(2, StringUtils.countMatches(string, "is"));
+	}
+
+	@Test
+	public void testExtractInitialLettersFromString() {
+		assertEquals("tiaEo.ass", WordUtils.initials(string, ' ', '.'));
+	}
+
+	@Test
+	public void testNormalizeSpacesInString() {
+		String string = "\t\tthis   is  \t an Example of .   a simple       string\n  ";
+		assertEquals("this is an Example of . a simple string", StringUtils.normalizeSpace(string));
+	}
+
+	@Test
+	public void testAppendToStringIfMissing() {
+		assertEquals("this is an Example of.a simple string.", StringUtils.appendIfMissing(string, "."));
+	}
+
+	@Test
+	public void testPrependToStringIfMissing() {
+		assertEquals(".this is an Example of.a simple string", StringUtils.prependIfMissing(string, "."));
+		assertEquals("?this is an Example of.a simple string", StringUtils.prependIfMissing(string, "?", "Is"));
 	}
 }
