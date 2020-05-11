@@ -4,6 +4,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.text.WordUtils;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -60,7 +62,7 @@ public class StringManipulationTest {
 	}
 
 	@Test
-	public void testContainsInString() {
+	public void testStringContains() {
 		assertTrue(StringUtils.contains(string, "."));
 		assertFalse(StringUtils.contains(string, ","));
 
@@ -73,5 +75,22 @@ public class StringManipulationTest {
 
 		assertTrue(StringUtils.containsNone(string, 'q', 'w', 'Z'));
 		assertFalse(StringUtils.containsNone(string, 'q', 'w', 's'));
+	}
+
+	@Test
+	public void testStringStartsWith() {
+		assertTrue(StringUtils.startsWith(string, "this"));
+		assertFalse(StringUtils.startsWith(string, "This"));
+
+		assertTrue(StringUtils.startsWithIgnoreCase(string, "ThIS"));
+		assertTrue(StringUtils.startsWithAny(string, new String[]{"this", "This"}));
+	}
+
+	@Test
+	public void testSubstring() {
+		assertEquals("this", StringUtils.left(string, 4));
+		assertEquals("is", StringUtils.mid(string, 5, 2));
+		assertEquals("this is an", StringUtils.mid(string, -19, 10));
+		assertEquals("string", StringUtils.right(string, 6));
 	}
 }
