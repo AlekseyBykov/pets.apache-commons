@@ -1,14 +1,14 @@
 package alekseybykov.portfolio.apache.commons.strings;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.text.WordUtils;
 import org.junit.Test;
 
-import java.util.Arrays;
-
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 
 public class StringManipulationTest {
 
@@ -92,5 +92,14 @@ public class StringManipulationTest {
 		assertEquals("is", StringUtils.mid(string, 5, 2));
 		assertEquals("this is an", StringUtils.mid(string, -19, 10));
 		assertEquals("string", StringUtils.right(string, 6));
+	}
+
+	@Test
+	public void testRandomizeString() {
+		assertNotNull(RandomStringUtils.randomAscii(10));
+		assertNotNull(RandomStringUtils.randomAlphanumeric(10));
+		assertNotNull(RandomStringUtils.randomAlphabetic(10));
+		assertNotNull(RandomStringUtils.randomNumeric(10));
+		assertNotNull(RandomStringUtils.random(10, "abc123"));
 	}
 }
