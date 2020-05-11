@@ -19,4 +19,11 @@ public class SystemDataObtainingTest {
 		assertNotNull(SystemUtils.JAVA_HOME);
 		assertNotNull(SystemUtils.JAVA_IO_TMPDIR);
 	}
+
+	@Test
+	public void testUserRelatedData() {
+		assertNotNull(SystemUtils.USER_COUNTRY);
+		assertNotNull(SystemUtils.USER_LANGUAGE);
+		assertNotNull(SystemUtils.USER_TIMEZONE);
+	}
 }
