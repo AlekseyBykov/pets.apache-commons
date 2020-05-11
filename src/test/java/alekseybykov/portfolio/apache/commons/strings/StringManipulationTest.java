@@ -4,7 +4,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.text.WordUtils;
 import org.junit.Test;
 
+import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 public class StringManipulationTest {
 
@@ -55,5 +57,21 @@ public class StringManipulationTest {
 	public void testPrependToStringIfMissing() {
 		assertEquals(".this is an Example of.a simple string", StringUtils.prependIfMissing(string, "."));
 		assertEquals("?this is an Example of.a simple string", StringUtils.prependIfMissing(string, "?", "Is"));
+	}
+
+	@Test
+	public void testContainsInString() {
+		assertTrue(StringUtils.contains(string, "."));
+		assertFalse(StringUtils.contains(string, ","));
+
+		assertTrue(StringUtils.containsIgnoreCase(string, "STR"));
+
+		assertTrue(StringUtils.containsAny(string, "qws"));
+		assertTrue(StringUtils.containsAny(string, 'q', 'w', 's'));
+
+		assertFalse(StringUtils.containsOnly(string, 'q', 'w', 's'));
+
+		assertTrue(StringUtils.containsNone(string, 'q', 'w', 'Z'));
+		assertFalse(StringUtils.containsNone(string, 'q', 'w', 's'));
 	}
 }
