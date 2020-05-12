@@ -95,11 +95,11 @@ public class StringManipulationTest {
 	}
 
 	@Test
-	public void testRandomizeString() {
-		assertNotNull(RandomStringUtils.randomAscii(10));
-		assertNotNull(RandomStringUtils.randomAlphanumeric(10));
-		assertNotNull(RandomStringUtils.randomAlphabetic(10));
-		assertNotNull(RandomStringUtils.randomNumeric(10));
-		assertNotNull(RandomStringUtils.random(10, "abc123"));
+	public void testGenerateRandomStrings() {
+		assertTrue(StringUtils.isAsciiPrintable(RandomStringUtils.randomAscii(10)));
+		assertTrue(RandomStringUtils.randomAlphanumeric(10).matches("^[a-zA-Z0-9]+$"));
+		assertTrue(RandomStringUtils.randomAlphabetic(10).matches("^[a-zA-Z]+$"));
+		assertTrue(RandomStringUtils.randomNumeric(10).matches("^[0-9]+$"));
+		assertTrue(RandomStringUtils.random(10, "abc123").matches("^[abc123]+$"));
 	}
 }
