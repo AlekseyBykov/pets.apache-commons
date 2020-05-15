@@ -5,10 +5,12 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.text.WordUtils;
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
 
 public class StringManipulationTest {
 
@@ -101,5 +103,16 @@ public class StringManipulationTest {
 		assertTrue(RandomStringUtils.randomAlphabetic(10).matches("^[a-zA-Z]+$"));
 		assertTrue(RandomStringUtils.randomNumeric(10).matches("^[0-9]+$"));
 		assertTrue(RandomStringUtils.random(10, "abc123").matches("^[abc123]+$"));
+	}
+
+	@Test
+	public void testJoinKeyValueFromMapToString() {
+		Map<String, String> map = new HashMap<>();
+		map.put("key 1", "value 1");
+		map.put("key 2", "value 2");
+		map.put("key 3", "value 3");
+
+		assertEquals("key 1|key 2|key 3", StringUtils.join( map.keySet(), '|'));
+		assertEquals("value 1|value 2|value 3", StringUtils.join( map.values(), '|'));
 	}
 }
