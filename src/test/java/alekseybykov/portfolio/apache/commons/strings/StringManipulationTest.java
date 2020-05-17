@@ -97,6 +97,14 @@ public class StringManipulationTest {
 	}
 
 	@Test
+	public void testRemoveSubstringsIfMatched() {
+		String string = "https://www.oracle.com";
+		string = StringUtils.removeStart(string, "https://www.");
+		string = StringUtils.removeEnd(string, ".en");
+		assertEquals("oracle.com", string);
+	}
+
+	@Test
 	public void testGenerateRandomStrings() {
 		assertTrue(StringUtils.isAsciiPrintable(RandomStringUtils.randomAscii(10)));
 		assertTrue(RandomStringUtils.randomAlphanumeric(10).matches("^[a-zA-Z0-9]+$"));
