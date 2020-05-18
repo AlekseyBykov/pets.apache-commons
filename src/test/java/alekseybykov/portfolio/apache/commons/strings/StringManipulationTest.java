@@ -105,6 +105,12 @@ public class StringManipulationTest {
 	}
 
 	@Test
+	public void testCheckCaseForWholeString() {
+		assertFalse(StringUtils.isAllUpperCase(string));
+		assertFalse(StringUtils.isAllLowerCase(string));
+	}
+
+	@Test
 	public void testGenerateRandomStrings() {
 		assertTrue(StringUtils.isAsciiPrintable(RandomStringUtils.randomAscii(10)));
 		assertTrue(RandomStringUtils.randomAlphanumeric(10).matches("^[a-zA-Z0-9]+$"));
