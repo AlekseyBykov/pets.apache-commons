@@ -12,6 +12,10 @@ import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
+/**
+ * @author Aleksey Bykov
+ * @since 11.05.2020
+ */
 public class StringManipulationTest {
 
 	private final String string = "this is an Example of.a simple string";

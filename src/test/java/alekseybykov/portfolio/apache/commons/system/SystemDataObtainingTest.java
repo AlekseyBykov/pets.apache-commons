@@ -6,6 +6,10 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+/**
+ * @author Aleksey Bykov
+ * @since 11.05.2020
+ */
 public class SystemDataObtainingTest {
 
 	@Test
